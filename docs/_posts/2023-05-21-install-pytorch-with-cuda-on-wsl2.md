@@ -2,7 +2,7 @@
 layout: post
 title:  在WSL2上安装CUDA和Pytorch
 date:   2023-05-21 20:40:24 +0800
-categories: cuda wsl2 pytorch
+tags: cuda wsl2 pytorch
 ---
 
 ### 安装CUDA

@@ -2,7 +2,7 @@
 layout: post
 title:  "教师节楹联"
 date:   2023-05-14 22:18:10 +0800
-categories: poetry
+tags: 诗词楹联
 ---
 
 #### 上联

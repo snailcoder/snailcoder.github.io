@@ -2,7 +2,7 @@
 layout: post
 title:  "文化金徽行二首"
 date:   2023-05-14 22:12:39 +0800
-categories: poetry
+tags: 诗词楹联
 ---
 
 #### （一）

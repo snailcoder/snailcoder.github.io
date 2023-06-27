@@ -2,7 +2,7 @@
 layout: post
 title:  "过长安访友"
 date:   2023-05-14 22:10:16 +0800
-categories: poetry
+tags: 诗词楹联
 ---
 
 故人延远客，  

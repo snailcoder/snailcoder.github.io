@@ -2,7 +2,7 @@
 layout: post
 title:  "江阴赠别二首"
 date:   2023-05-14 21:59:22 +0800
-categories: poetry
+tags: 诗词楹联
 ---
 
 #### （一）

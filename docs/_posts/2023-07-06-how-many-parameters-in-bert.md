@@ -26,7 +26,7 @@ BERT-base输入的最大序列长度为512，因此position嵌入矩阵的形状
 三个嵌入相加后，经过一层LayerNorm，包含一个gain向量和一个bias向量，形状均为[768]，参数量：
 <p align="center">768 * 2 = 1536</p>
 
-**因此，BERT-base输入层的参数总量： 23440896 + 1536 + 393216 + 1536 = 23837184**
+**因此，BERT-base输入层的参数总量：** 23440896 + 1536 + 393216 + 1536 = 23837184
 
 输入层之上，BERT-base堆叠了12个Transformer block，每个block内部又有muti-head attention和feed-forward两个子层。在multi-head attention子层，BERT-base有12个注意力头，每个头对应的Q、K和V矩阵的形状均为[768, 64]，偏置形状为[64]，单个注意力头的参数量：
 
@@ -48,11 +48,11 @@ Feed-forward层把multi-head attention层的输出做两次映射：一次升维
 
 因此，一个Transformer block的参数总量：1771776 + 590592 + 4722432 + 3072 = 7087872
 
-**BERT-base共有12层block，12层参数总量：7087872 * 12 = 85054464**
+**BERT-base共有12层block，12层参数总量：** 7087872 * 12 = 85054464
 
 下图展示了BERT-base的基本结构和全部参数：
 
 <p align="center"><img src="/assets/img/bert-base-parameters.png" alt="bert-base-parameters" width="100%"/></p>
 
-**综上，BERT-base的参数总量：$23837184 + 85054464 = 108891648 \approx 109M$**
+**综上，BERT-base的参数总量：** $$23837184 + 85054464 = 108891648 \approx 109M$$
 

@@ -17,7 +17,7 @@ tags: 大模型 适配器
 
 以Transformer为例，适配器方法在每个block中插入两个适配器模块，如下图所示：
 
-<p align="center"><img src="/assets/img/transformer-block-with-adapter.png" alt="transformer-block-with-adapter" width="30%"/></p>
+<p align="center"><img src="/assets/img/transformer-block-with-adapter.PNG" alt="transformer-block-with-adapter" width="30%"/></p>
 
 两个adapter分别位于两个前馈层之上：第一个前馈层把多头注意力的输出拼接之后映射到与输入向量等维度的空间中，第二个前馈层把上一层网络升维后的表示降维到与输入向量等维度的空间中。适配器论文代码的[transformer_model函数](https://github.com/google-research/adapter-bert/blob/master/modeling.py#L832)提供了这部分的实现，如下图所示：
 
@@ -25,7 +25,7 @@ tags: 大模型 适配器
 
 每个adapter的结构如下图所示：
 
-<p align="center"><img src="/assets/img/adapter-structure.png" alt="adapter-structure" width="30%"/></p>
+<p align="center"><img src="/assets/img/adapter-structure.PNG" alt="adapter-structure" width="30%"/></p>
 
 设Transformer的输入特征维度为d，适配器首先把特征从d维映射到m维，再从m维映射到d维，其中，$$ m \ll d $$，使adapter内部形成“瓶颈”结构。同时，适配器在输入和输出之间加了一条跳接，这个技术在ResNet和Transformer中都有使用。初始化时，如果adapter的两个映射矩阵都接近零矩阵，适配器就近似为一个恒等函数，即$$ \psi_{w,v}(x) \approx \phi_{w}(x) $$。适配器论文代码的[feedforward_adapter函数](https://github.com/google-research/adapter-bert/blob/master/modeling.py#L321)实现了adapter：
 
@@ -37,7 +37,7 @@ tags: 大模型 适配器
 
 Adapter有个比较明显的缺点：增加了网络层数，导致推理延迟增加。以GPT-2 medium为例，观察Adapter-H（即上文提到的适配器方法，由N. Houlsby等人提出）和Adapter-L（适配器方法的一个高效变体，由Lin等人提出）的推理延迟：
 
-<p align="center"><img src="/assets/img/adapter-H-vs-adapter-L.png" alt="adapter-H-vs-adapter-L" width="100%"/></p>
+<p align="center"><img src="/assets/img/adapter-H-vs-adapter-L.PNG" alt="adapter-H-vs-adapter-L" width="100%"/></p>
 
 上图中，横轴是batch size，纵轴是adapter内部“瓶颈”的维度。颜色越深，表示相对于无适配器的GPT-2，推理延迟的增量越小。当“瓶颈”维度为0时，热力图颜色为黑色，表示无适配器的原始GPT-2。由上图可见，batch size越大，推理延迟增量越小；序列长度越长，推理延迟增量越小。但是，在实际线上场景中，batch size往往为1或很小，可能导致适配器方法微调的大模型比无适配器微调的大模型推理延迟增加超过30%。
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  拆开爸爸的电动剃须刀
+title:  电生磁
 date:   2023-07-18 21:57:58 +0800
 tags:   vlog
 ---

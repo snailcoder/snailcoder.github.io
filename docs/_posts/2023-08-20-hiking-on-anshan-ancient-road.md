@@ -31,6 +31,8 @@ tags: 随笔
 
 <p align="center"><img src="/assets/img/xiaoquanxi-village.jpg" alt="xiaoquanxi-village" width="100%"/><br><em>夕阳西下，回望小泉溪村，云无心而出岫</em></p>
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Q_1Lb2lQuW0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 &emsp;&emsp;这次徒步，发现了一些网上攻略未提及的事项，这里记录下来，供后来人参考：
 1. 安山村在南，溪西村在北，但安山地势较高，如想在徒步中省力，起点可选在安山；
 2. 安山古道不是环线，如果有两辆车，建议一辆停在起点，一辆停在终点，村子均可免费停车，避免走回头路；

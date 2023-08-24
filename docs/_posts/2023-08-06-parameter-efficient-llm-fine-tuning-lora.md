@@ -29,11 +29,11 @@ LoRA受到预训练模型存在“内在维度”现象的启发。为了理解�
 
 设输入为x，微调时得到增量$$ \Delta W $$，与原始权重$$ W_{0} $$相加得到更新后的权重，输出$$ h=(W_{0} + \Delta W)x $$。根据矩阵的乘法分配律，有$$ h=W_{0}x+\Delta Wx $$，这意味着微调时可以保持$$ W_{0} $$不变，分别将$$ W_{0} $$、$$ \Delta W $$与x相乘，最后把两个乘积相加即可得到输出h。
 
-设$$ W_{0}\in\mathbb{R}^{d\times k} $$，$$ \Delta W=BA $$是$$ \Delta W $$的一个分解，其中$$ B\in\mathbb{R}^{d\times r}, A\in\mathbb{R}^{r\times k}, r\ll min(d, k)$$。训练时，分别用随机高斯和零矩阵初始化A和B，确保初始化时BA是零矩阵，对模型效果没有影响。训练过程中冻结$$ W_{0} $$，只更新矩阵B和A，共r(d+k)个参数，从而实现“参数高效”微调。推理时，分别计算$$ W_{0}x $$和 $$ BAx $$并相加，得到输出h，如下图所示：
+设$$ W_{0}\in\mathbb{R}^{d\times k} $$，$$ \Delta W $$的秩为r，$$ \Delta W=BA $$是$$ \Delta W $$的一个满秩分解，其中$$ B\in\mathbb{R}^{d\times r}, A\in\mathbb{R}^{r\times k}, r\ll min(d, k)$$。训练时，分别用随机高斯和零矩阵初始化A和B，确保初始化时BA是零矩阵，对模型效果没有影响。训练过程中冻结$$ W_{0} $$，只更新矩阵B和A，共r(d+k)个参数，从而实现“参数高效”微调。推理时，分别计算$$ W_{0}x $$和 $$ BAx $$并相加，得到输出h，如下图所示：
 
 <p align="center"><img src="/assets/img/reparameterization-of-lora.PNG" alt="reparameterization-of-lora" width="50%"/></p>
 
-如果r恰好等于$$ \Delta W $$的秩，甚至大于$$ \Delta $$的秩（例如等于预训练权重矩阵$$ W_{0} $$的秩），利用B和A可以完全重建$$ \Delta W $$，这时，LoRA的效果近似于全量微调。如果r小于$$ \Delta W $$的秩，BA就是$$ \Delta W $$的一个低秩近似，利用矩阵B和A可以恢复矩阵$$ \Delta W $$中的部分信息。
+实际上，r是一个超参，训练时可任意设定，$$ \Delta W $$真正的秩未必等于r。如果r恰好等于$$ \Delta W $$的秩，甚至大于$$ \Delta $$的秩（例如等于预训练权重矩阵$$ W_{0} $$的秩），利用学到的B和A可以完全重建$$ \Delta W $$，这时，LoRA的效果近似于全量微调。如果r小于$$ \Delta W $$的秩，BA就是$$ \Delta W $$的一个低秩近似，利用矩阵B和A可以恢复矩阵$$ \Delta W $$中的部分信息。
 
 ### 使用方法
 

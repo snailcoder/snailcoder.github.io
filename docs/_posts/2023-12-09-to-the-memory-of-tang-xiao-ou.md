@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "由汤晓鸥去世所想到的"
+title:  "纪念汤晓鸥"
 date:   2023-12-09 21:31:53 +0800
 tags: 随笔
 ---
 
 &emsp;&emsp;周六上午从上海人工智能实验室内部听到汤晓鸥去世的消息，十分震惊。就在三个多月前，我还在一场活动中见到了汤晓鸥。他穿着白色衬衫，在切完实验室集体生日蛋糕后，他从我身边走过。那是我第一次见到他本人，也是最后一次。
 
-<p align="center"><img src="/assets/img/tangxiaoou/tang-xiao-ou-2" alt="tang-xiao-ou" width="100%"></p>
+<p align="center"><img src="/assets/img/tangxiaoou/tang-xiao-ou-2.jpg" alt="tang-xiao-ou" width="100%"></p>
 
 &emsp;&emsp;我第一次听说汤晓鸥的名字是在十几年前的读研时期。当时宿舍做cv方向的同学时常提起他，并对他们团队的工作有颇高的评价。由于我的研究方向不是cv，没有太多兴趣去了解汤晓鸥的工作，对他的印象也就停留在cv大牛上。
 
@@ -17,5 +17,5 @@ tags: 随笔
 
 &emsp;&emsp;出师未捷身先死，常使英雄泪满襟。他的时代落幕了，能在落幕前见到他本人是我的幸运，没有更多的交流则无比可惜。人生总是充满遗憾，好在有的人早已桃李满天下，把理想主义、英雄主义的种子在身边播撒，那便是他灵魂的延续。
 
-<p align="center"><img src="/assets/img/tangxiaoou/tang-xiao-ou-1" alt="tang-xiao-ou" width="100%"></p>
+<p align="center"><img src="/assets/img/tangxiaoou/tang-xiao-ou-1.jpg" alt="tang-xiao-ou" width="100%"></p>
 

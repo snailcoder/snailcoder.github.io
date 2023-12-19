@@ -19,3 +19,4 @@ tags: 随笔
 
 <p align="center"><img src="/assets/img/tangxiaoou/tang-xiao-ou-1.jpg" alt="tang-xiao-ou" width="100%"></p>
 
+&emsp;&emsp;此刻，电脑正在播放音乐《猎户星座》和《同桌的你》，时间已走远，夜深了...

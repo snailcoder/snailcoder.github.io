@@ -126,5 +126,5 @@ def forward(self, indices):
 
 在Huggingface PEFT的实现中，p-tuning和prompt tuning拼接prompt和输入的方法是一样的，都是把prompt放在输入前面，并未体现p-tuning中提到的把prompt放在输入的其他位置。
 
-除上面两种方法外，软提示还有其他形式，如prefix-tuning、多任务prompt tuning等，与上述两种方法均有类似之处，这里不做介绍。
+除上面两种方法外，软提示还有其他形式，如prefix-tuning和p-tuning v2等，与上述两种方法均有类似之处，另写一篇文章介绍。
 

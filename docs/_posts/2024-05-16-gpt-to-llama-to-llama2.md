@@ -27,7 +27,7 @@ tags:   大模型 gpt llama
 
 上面的每一条都有其他模型使用过，例如，GPT-2和GPT-3用过pre-normalization，PaLM用过SwiGLU，GPTNeo用过RoPE。然而，在大力出奇迹的时代，技巧大杂烩也可以大放异彩，关键要看你的力够不够大。于是，LLaMA的架构就变成下面的样子（图片来自[这里](https://github.com/hkproj/pytorch-llama-notes)）：
 
-<p align="center"><img src="/assets/img/gpt-llama-llama2/llama.PNG" alt="llama" width="70%"></p>
+<p align="center"><img src="/assets/img/gpt-llama-llama2/llama.png" alt="llama" width="70%"></p>
 
 由于RoPE要说的东西比较多，另写文章介绍。这里只简单介绍SwiGLU和RMSNorm。
 

@@ -186,7 +186,7 @@ GQA的思路简单粗暴：用原始MHA，每个K和V有多个注意力头，你
 
 下图对比了原始多头注意力MHA、多查询注意力MQA和分组查询注意力GQA三种注意力机制：
 
-<p align="center"><img src="/assets/img/gpt-llama-llama2/mha-mqa-gqa.PNG" alt="mha-mqa-gqa" width="100%"></p>
+<p align="center"><img src="/assets/img/gpt-llama-llama2/mha-mqa-gqa.png" alt="mha-mqa-gqa" width="100%"></p>
 
 可以看出，GQA的机制是Q的若干个注意力头组成一组，共享同一个K和V。
 

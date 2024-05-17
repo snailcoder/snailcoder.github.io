@@ -88,7 +88,7 @@ $$ \sigma^l=\sqrt{\frac{1}{H}\sum\limits_{i=1}^{H}(a_i^l-\mu^l)^2} $$
 
 $$ h_{i}=f(\frac{g_{i}}{\sigma_{i}}(a_{i}-\mu_{i})+b_{i}) $$
 
-其中，增益$$g_{i}$$和偏置$$b_{i}$$是需要学习的两个参数。
+其中，f是激活函数，增益$$g_{i}$$和偏置$$b_{i}$$是需要学习的两个参数。
 
 LayerNorm具有良好的re-centering和re-scaling不变性。所谓re-centering就是用减均值的方式实现均值为0的效果，re-scaling就是用除以方差的方式实现缩放效果。re-centering不变性使模型对输入和权重漂移不敏感，re-scaling不变性使模型的输出不会受到输入和权重随机缩放的影响。
 

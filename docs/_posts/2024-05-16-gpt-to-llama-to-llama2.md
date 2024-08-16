@@ -45,15 +45,15 @@ $$ SwiGLU(\mathbf{x, W, V, b, c})=Swish_{\beta}(\mathbf{xW+b})\otimes (\mathbf{x
 
 最初Transformer用ReLU激活FFN：
 
-$$ FFN(\mathbf{x, W_{1}, W_{2}, b_{1}, b_{2}})=\max(0, \mathbf{xW_{1}+b_{1}})\mathbf{W_{2}+b_{2}}$$
+$$ FFN(\mathbf{x, W_{1}, W_{2}, b_{1}, b_{2}})=ReLU(\mathbf{xW_{1}+b_{1}})\mathbf{W_{2}+b_{2}}=\max(0, \mathbf{xW_{1}+b_{1}})\mathbf{W_{2}+b_{2}}$$
 
 后来T5去掉了偏置：
 
-$$ FFN_{ReLU}(\mathbf{x, W_{1}, W_{2}})=\max(0, \mathbf{xW_{1}})\mathbf{W_{2}}$$
+$$ FFN_{ReLU}(\mathbf{x, W_{1}, W_{2}})=ReLU(\mathbf{xW_{1}})\mathbf{W_{2}}=\max(0, \mathbf{xW_{1}})\mathbf{W_{2}}$$
 
-到了LLaMA，FFN的激活方式变为：
+到了LLaMA，FFN的“激活方式”变为：
 
-$$ FFN_{Swish}(\mathbf{x, W_{1}, W_{2}})=Swish_{1}(\mathbf{xW_{1}})\mathbf{W_{2}}$$
+$$ FFN_{SwiGLU}(\mathbf{x, W_{1}, V, W_{2}})=SwiGLU(\mathbf{x, W_{1}, V})\mathbf{W_{2}}=(Swish_{1}(\mathbf{xW_{1}})\otimes \mathbf{xV})\mathbf{W_{2}}$$
 
 #### RMSNorm
 

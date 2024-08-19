@@ -70,11 +70,39 @@ $$
 
 #### 温度采样
 
-经过前文的铺垫，本文主角“温度采样”终于登场。与核采样一样，温度采样也是为了增加生成文本的多样性。思路很简单，就是利用温度$$ t\in [0, 1) $$调节原始概率分布。设当前时间步模型输出logits的第$$ l $$个数值为$$ u_{l} $$，则下一个token选择词表中第$$ l $$个单词$$ V_{l} $$的概率为：
+经过前文的铺垫，本文主角“温度采样”终于登场。与核采样一样，温度采样也是为了增加生成文本的多样性。思路很简单，就是利用温度$$t$$调节原始概率分布。设当前时间步模型输出logits的第$$ l $$个数值为$$ u_{l} $$，温度为$$t$$，则下一个token选择词表中第$$ l $$个单词$$ V_{l} $$的概率为：
 
 $$ p(x=V_{l}\mid x_{1:i-1})=\frac{\exp(u_{l}/t)}{\sum\limits_{l'}\exp(u_{l'}/t)} $$
 
-可见，温度采样只是简单修改了用于计算分布的softmax函数。在logits的各维度中，较大的数值被温度$$ t $$放大的效应更明显，使模型不会生成随机的token序列。从另一个角度看，给定一个logits，$$ t $$越大，对logits的放大效应越不明显，从而logits在各维度上的数值差异越小，生成token的随机性（或多样性）越强。
+可见，温度采样只是简单修改了用于计算分布的softmax函数。温度越低，token之间的概率相差越大，采样时就会越稳定地偏向于高概率token。相反，温度越高，token之间的概率相差越小，生成token的随机性（或多样性）越强。我们可以通过计算概率分布的熵感受温度带来的差异：
+
+``` Python
+import torch
+from torch.distributions.categorical import Categorical
+
+logits = torch.rand(2, 5)
+# [[0.6508, 0.0325, 0.9272, 0.4163, 0.8083],
+#  [0.8909, 0.5329, 0.7321, 0.0875, 0.8136]]
+
+cat = Categorical(logits=logits)
+ent = cat.entropy()
+# [1.5663, 1.5757]
+
+# low temperature, low entropy
+low_t_logits = logits / 0.3
+cat = Categorical(logits=low_t_logits)
+
+ent = cat.entropy()  # [1.3097, 1.3922]
+
+# high temperature, high entropy
+high_t_logits = logits / 2.0
+cat = Categorical(logits=high_t_logits)
+
+ent = cat.entropy()  # [1.5977, 1.6000]
+
+```
+
+可见，温度越低，熵越低，说明不同token之间的概率相差较大，生成内容稳定性较好。温度越高，熵越高，说明不同token之间的概率相差较小，生成内容多样性较好。
 
 ***通过调节温度，改变生成token的概率分布，这就是温度的本质***。
 
